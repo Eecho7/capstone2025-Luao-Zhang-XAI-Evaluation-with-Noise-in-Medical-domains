@@ -27,7 +27,7 @@ for file_name in sorted(os.listdir(noise_dir)):
     if not file_name.endswith(".csv"):
         continue
 
-    print(f"🔁 Processing: {file_name}")
+    print(f"Processing: {file_name}")
     file_path = os.path.join(noise_dir, file_name)
 
 
@@ -47,16 +47,21 @@ for file_name in sorted(os.listdir(noise_dir)):
     explainer = shap.TreeExplainer(model)
     shap_values = explainer.shap_values(X_train)
 
-    plt.figure()
+    plt.figure(figsize=(10, 6))
 
     if isinstance(shap_values, list):
         shap.summary_plot(shap_values, X_train, show=False, max_display=10)
     else:
         shap.summary_plot(shap_values, X_train, show=False, max_display=10)
 
+    ax = plt.gca()
+    ax.set_xlabel(ax.get_xlabel(), fontsize=16)
+    ax.set_ylabel(ax.get_ylabel(), fontsize=16)
+    ax.tick_params(axis='both', labelsize=14)
+
     plt.tight_layout()
 
     shap_plot_path = os.path.join(output_shap_dir, file_name.replace(".csv", "_shap_top10.png"))
     plt.savefig(shap_plot_path, bbox_inches="tight")
     plt.close()
-    print(f"📊 Top 10 SHAP PLOT SAVED: {shap_plot_path}")
+    print(f"Top 10 SHAP PLOT SAVED: {shap_plot_path}")
