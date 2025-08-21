@@ -1,7 +1,8 @@
 # capstone2025-Luao-Zhang-XAI-Evaluation-with-Noise-in-Medical-domains
 This project studies how noise affects both predictive performance and interpretability of machine learning models in medical settings. We evaluate Random Forest and XGBoost under multi-dimensional noise and analyze explanations using SHAP.
 
-### Project Structure
+## Project Structure
+```
 Classification task/                
 │
 ├── Randomforest/
@@ -26,5 +27,10 @@ data/
 
 README.md                             
 .gitignore                            
+```
+## Datasets
+Disease Prediction Using Machine Learning (Kaggle, Kaushil Patel, 2019)
+https://www.kaggle.com/datasets/kaushil268/disease-prediction-using-machine-learning
 
-
+Global Cancer Patients 2015–2024 (Kaggle, Zahid Feroze, 2025)
+https://www.kaggle.com/datasets/zahidmughal2343/global-cancer-patients-2015-2024
